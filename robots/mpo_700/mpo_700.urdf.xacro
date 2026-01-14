@@ -61,6 +61,34 @@
       <!-- SENSORS -->
       <!-- Sick S300 - Comment/Uncomment if required -->
       <!-- <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/xacros/sick_S300.xacro" /> -->
+    
+    <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/inertial_macros.xacro"/>
+    <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/lidar.xacro" />
+    <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/depth_camera.xacro" />
+    <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/ultrasonic_sensor.xacro" />
+    
+
+
+    <!-- origin is the position between chassis and realsense d435i -->
+    <!-- <xacro:include filename="_d435i.urdf.xacro"/>
+    <xacro:sensor_d435i parent="chassis" name="camera" topics_ns="camera"> 
+        <origin xyz="0.35 0.0 0.13" rpy="0.0 0.0 0.0"/>
+    </xacro:sensor_d435i> -->
+
+
+
+    <!-- Test!! -->
+
+
+    <!-- <link name="base_link" /> -->
+
+    <!-- <xacro:include filename="depth_camera.xacro" /> -->
+    <!-- <xacro:include filename="camera.xacro"/> -->
+<!-- 
+    <xacro:include filename="_d435i.urdf.xacro"/>
+    <xacro:sensor_d435i parent="base_link" name="camera" topics_ns="camera"> 
+        <origin xyz="0.0 0.0 0.13" rpy="0.0 0.0 0.0"/>
+    </xacro:sensor_d435i> -->
 </robot>
 
 

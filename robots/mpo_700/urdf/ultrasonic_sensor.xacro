@@ -1,0 +1,524 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Forward ultrasonic sensor joint 1 -->
+    <joint name="ultrasonic_forward_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="ultrasonic_forward_link"/>
+        <origin xyz="0.25 0.25 0.5" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Forward ultrasonic sensor joint 2 -->
+    <joint name="ultrasonic_forward_2_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="ultrasonic_forward_2_link"/>
+        <origin xyz="0.25 -0.25 0.5" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Left ultrasonic sensor joint 1 -->
+    <joint name="ultrasonic_left_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="ultrasonic_left_link"/>
+        <origin xyz="0.25 0.25 0.5" rpy="0 0 1.5708"/>
+    </joint>
+
+    <!-- Left ultrasonic sensor joint 2 -->
+    <joint name="ultrasonic_left_2_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="ultrasonic_left_2_link"/>
+        <origin xyz="-0.25 0.25 0.5" rpy="0 0 1.5708"/>
+    </joint>
+
+    <!-- Right ultrasonic sensor joint 1 -->
+    <joint name="ultrasonic_right_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="ultrasonic_right_link"/>
+        <origin xyz="0.25 -0.25 0.5" rpy="0 0 -1.5708"/>
+    </joint>
+
+    <!-- Right ultrasonic sensor joint 2 -->
+    <joint name="ultrasonic_right_2_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="ultrasonic_right_2_link"/>
+        <origin xyz="-0.25 -0.25 0.5" rpy="0 0 -1.5708"/>
+    </joint>
+
+    <!-- Backward ultrasonic sensor joint 1 -->
+    <joint name="ultrasonic_backward_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="ultrasonic_backward_link"/>
+        <origin xyz="-0.25 -0.25 0.5" rpy="0 0 3.14159"/>
+    </joint>
+
+    <!-- Backward ultrasonic sensor joint 2 -->
+    <joint name="ultrasonic_backward_2_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="ultrasonic_backward_2_link"/>
+        <origin xyz="-0.25 0.25 0.5" rpy="0 0 3.14159"/>
+    </joint>
+
+    <!-- Forward ultrasonic sensor link -->
+    <link name="ultrasonic_forward_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+        </inertial>
+    </link>
+
+    <!-- Left ultrasonic sensor link -->
+    <link name="ultrasonic_left_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+        </inertial>
+    </link>
+
+    <!-- Right ultrasonic sensor link -->
+    <link name="ultrasonic_right_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+        </inertial>
+    </link>
+
+    <!-- Backward ultrasonic sensor link -->
+    <link name="ultrasonic_backward_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+        </inertial>
+    </link>
+
+    <!-- Second Forward ultrasonic sensor link -->
+    <link name="ultrasonic_forward_2_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+        </inertial>
+    </link>
+
+    <!-- Second Left ultrasonic sensor link -->
+    <link name="ultrasonic_left_2_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+        </inertial>
+    </link>
+
+    <!-- Second Right ultrasonic sensor link -->
+    <link name="ultrasonic_right_2_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+        </inertial>
+    </link>
+
+    <!-- Second Backward ultrasonic sensor link -->
+    <link name="ultrasonic_backward_2_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+        </inertial>
+    </link>
+
+    <!-- Forward ultrasonic sensor Gazebo configuration -->
+    <gazebo reference="ultrasonic_forward_link">
+        <material>Gazebo/Blue</material>
+        
+        <sensor name="ultrasonic_forward_sensor" type="ray">
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>2</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.12</min>
+                    <max>20.0</max>
+                    <resolution>0.001</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.001</stddev>
+                </noise>
+            </ray>
+            <plugin filename="libgazebo_ros_ray_sensor.so" name="ultrasonic_forward_plugin">
+                <ros>
+                    <argument>~/out:=laser_front_1</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>ultrasonic_forward_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- Left ultrasonic sensor Gazebo configuration -->
+    <gazebo reference="ultrasonic_left_link">
+        <material>Gazebo/Green</material>
+        
+        <sensor name="ultrasonic_left_sensor" type="ray">
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>2</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.12</min>
+                    <max>20.0</max>
+                    <resolution>0.001</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.001</stddev>
+                </noise>
+            </ray>
+            <plugin filename="libgazebo_ros_ray_sensor.so" name="ultrasonic_left_plugin">
+                <ros>
+                    <argument>~/out:=laser_left_1</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>ultrasonic_left_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- Right ultrasonic sensor Gazebo configuration -->
+    <gazebo reference="ultrasonic_right_link">
+        <material>Gazebo/Yellow</material>
+        
+        <sensor name="ultrasonic_right_sensor" type="ray">
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>2</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.12</min>
+                    <max>20.0</max>
+                    <resolution>0.001</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.001</stddev>
+                </noise>
+            </ray>
+            <plugin filename="libgazebo_ros_ray_sensor.so" name="ultrasonic_right_plugin">
+                <ros>
+                    <argument>~/out:=laser_right_1</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>ultrasonic_right_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- Backward ultrasonic sensor Gazebo configuration -->
+    <gazebo reference="ultrasonic_backward_link">
+        <material>Gazebo/Red</material>
+        
+        <sensor name="ultrasonic_backward_sensor" type="ray">
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>2</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.12</min>
+                    <max>20.0</max>
+                    <resolution>0.001</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.001</stddev>
+                </noise>
+            </ray>
+            <plugin filename="libgazebo_ros_ray_sensor.so" name="ultrasonic_backward_plugin">
+                <ros>
+                    <argument>~/out:=laser_back_1</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>ultrasonic_backward_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- Second Forward ultrasonic sensor Gazebo configuration -->
+    <gazebo reference="ultrasonic_forward_2_link">
+        <material>Gazebo/Blue</material>
+        
+        <sensor name="ultrasonic_forward_2_sensor" type="ray">
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>2</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.12</min>
+                    <max>20.0</max>
+                    <resolution>0.001</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.001</stddev>
+                </noise>
+            </ray>
+            <plugin filename="libgazebo_ros_ray_sensor.so" name="ultrasonic_forward_2_plugin">
+                <ros>
+                    <argument>~/out:=laser_front_2</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>ultrasonic_forward_2_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- Second Left ultrasonic sensor Gazebo configuration -->
+    <gazebo reference="ultrasonic_left_2_link">
+        <material>Gazebo/Green</material>
+        
+        <sensor name="ultrasonic_left_2_sensor" type="ray">
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>2</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.12</min>
+                    <max>20.0</max>
+                    <resolution>0.001</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.001</stddev>
+                </noise>
+            </ray>
+            <plugin filename="libgazebo_ros_ray_sensor.so" name="ultrasonic_left_2_plugin">
+                <ros>
+                    <argument>~/out:=laser_left_2</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>ultrasonic_left_2_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- Second Right ultrasonic sensor Gazebo configuration -->
+    <gazebo reference="ultrasonic_right_2_link">
+        <material>Gazebo/Yellow</material>
+        
+        <sensor name="ultrasonic_right_2_sensor" type="ray">
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>2</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.12</min>
+                    <max>20.0</max>
+                    <resolution>0.001</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.001</stddev>
+                </noise>
+            </ray>
+            <plugin filename="libgazebo_ros_ray_sensor.so" name="ultrasonic_right_2_plugin">
+                <ros>
+                    <argument>~/out:=laser_right_2</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>ultrasonic_right_2_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- Second Backward ultrasonic sensor Gazebo configuration -->
+    <gazebo reference="ultrasonic_backward_2_link">
+        <material>Gazebo/Red</material>
+        
+        <sensor name="ultrasonic_backward_2_sensor" type="ray">
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>2</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.12</min>
+                    <max>20.0</max>
+                    <resolution>0.001</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.001</stddev>
+                </noise>
+            </ray>
+            <plugin filename="libgazebo_ros_ray_sensor.so" name="ultrasonic_backward_2_plugin">
+                <ros>
+                    <argument>~/out:=laser_back_2</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>ultrasonic_backward_2_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+</robot>
