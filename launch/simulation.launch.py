@@ -34,7 +34,7 @@ You can launch this file using the following terminal commands:
 """
 
 # OpaqueFunction is used to perform setup actions during launch through a Python function
-def launch_setup(context: LaunchContext, my_neo_robot_arg, my_neo_env_arg, robot_arm_arg, docking_adapter_arg, spawn_x_arg, spawn_y_arg, spawn_z_arg, spawn_yaw_arg):
+def launch_setup(context: LaunchContext, my_neo_robot_arg, my_neo_env_arg, robot_arm_arg, docking_adapter_arg, spawn_x_arg, spawn_y_arg, spawn_z_arg, spawn_yaw_arg, gui_arg):
     # Create a list to hold all the nodes
     launch_actions = []
     # The perform method of a LaunchConfiguration is called to evaluate its value.
@@ -46,6 +46,7 @@ def launch_setup(context: LaunchContext, my_neo_robot_arg, my_neo_env_arg, robot
     spawn_y = spawn_y_arg.perform(context)
     spawn_z = spawn_z_arg.perform(context)
     spawn_yaw = spawn_yaw_arg.perform(context)
+    gazebo_gui = 'true' if gui_arg.perform(context).lower() in ('true', '1', 'yes') else 'false'
     use_sim_time = True
 
     robots = ["mpo_700", "mp_400", "mp_500", "mpo_500"]
@@ -82,6 +83,7 @@ def launch_setup(context: LaunchContext, my_neo_robot_arg, my_neo_env_arg, robot
         launch_arguments={
             'world': world_path,
             'verbose': 'true',
+            'gui': gazebo_gui,
         }.items()
     )
 
@@ -218,6 +220,12 @@ def generate_launch_description():
         description='Yaw angle (rotation around Z-axis) for robot spawn orientation in radians'
     )
 
+    declare_gui_cmd = DeclareLaunchArgument(
+        'gui',
+        default_value='true',
+        description='Set to "false" to run Gazebo without gzclient (headless). Requires DISPLAY for true.',
+    )
+
     # Create launch configuration variables for the robot and map name
     my_neo_robot_arg = LaunchConfiguration('my_robot')
     my_neo_env_arg = LaunchConfiguration('world')
@@ -227,6 +235,7 @@ def generate_launch_description():
     spawn_y_arg = LaunchConfiguration('spawn_y')
     spawn_z_arg = LaunchConfiguration('spawn_z')
     spawn_yaw_arg = LaunchConfiguration('spawn_yaw')
+    gui_arg = LaunchConfiguration('gui')
 
     ld.add_action(declare_my_robot_arg)
     ld.add_action(declare_world_name_arg)
@@ -236,8 +245,19 @@ def generate_launch_description():
     ld.add_action(declare_spawn_y_cmd)
     ld.add_action(declare_spawn_z_cmd)
     ld.add_action(declare_spawn_yaw_cmd)
+    ld.add_action(declare_gui_cmd)
 
-    context_arguments = [my_neo_robot_arg, my_neo_env_arg, robot_arm_arg, docking_adapter_arg, spawn_x_arg, spawn_y_arg, spawn_z_arg, spawn_yaw_arg]
+    context_arguments = [
+        my_neo_robot_arg,
+        my_neo_env_arg,
+        robot_arm_arg,
+        docking_adapter_arg,
+        spawn_x_arg,
+        spawn_y_arg,
+        spawn_z_arg,
+        spawn_yaw_arg,
+        gui_arg,
+    ]
 
     opq_function = OpaqueFunction(
         function=launch_setup, 
