@@ -15,8 +15,11 @@ def generate_launch_description():
     param_file_arg = LaunchConfiguration('param_file')
 
     # Check for the robot with which mapping needs to be done
-    with open('robot_name.txt', 'r') as file:
-        my_neo_robot = file.read()
+    robot_name_path = os.path.join(os.path.expanduser('~'), '.neo_sim', 'robot_name.txt')
+    if not os.path.exists(robot_name_path):
+        robot_name_path = 'robot_name.txt'
+    with open(robot_name_path, 'r') as file:
+        my_neo_robot = file.read().strip()
 
     # Declare launch argument for parameter file
     declare_param_file_arg = DeclareLaunchArgument(

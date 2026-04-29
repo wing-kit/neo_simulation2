@@ -41,8 +41,11 @@ def launch_setup(context: LaunchContext,
     robots = ["mpo_700", "mp_400", "mp_500", "mpo_500"]
 
     # Reading the selected robot from robot_name.txt
-    with open('robot_name.txt', 'r') as file:
-        my_neo_robot = file.read()
+    robot_name_path = os.path.join(os.path.expanduser('~'), '.neo_sim', 'robot_name.txt')
+    if not os.path.exists(robot_name_path):
+        robot_name_path = 'robot_name.txt'
+    with open(robot_name_path, 'r') as file:
+        my_neo_robot = file.read().strip()
 
     if (param_dir == ""):
         for robot in robots:

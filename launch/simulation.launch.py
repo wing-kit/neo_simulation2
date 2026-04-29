@@ -57,7 +57,9 @@ def launch_setup(context: LaunchContext, my_neo_robot_arg, my_neo_env_arg, robot
         print("Invalid option, setting mpo_700 by default")
         my_neo_robot = "mpo_700"
 
-    with open('robot_name.txt', 'w') as file:
+    robot_name_path = os.path.join(os.path.expanduser('~'), '.neo_sim', 'robot_name.txt')
+    os.makedirs(os.path.dirname(robot_name_path), exist_ok=True)
+    with open(robot_name_path, 'w') as file:
         file.write(my_neo_robot)
 
     # Remove arm_type if robot does not support it
