@@ -11,6 +11,7 @@ install(DIRECTORY launch
   rviz
   components
   models
+  scripts
   DESTINATION share/${PROJECT_NAME})
 
 ament_package()

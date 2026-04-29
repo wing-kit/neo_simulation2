@@ -167,6 +167,16 @@ def launch_setup(context: LaunchContext, my_neo_robot_arg, my_neo_env_arg, robot
         launch_actions.append(initial_joint_controller_spawner_stopped)
     launch_actions.append(gazebo)
     launch_actions.append(spawn_entity)
+
+    # Publish direct yaw angle from IMU quaternion
+    imu_yaw_publisher = Node(
+        package='neo_simulation2',
+        executable='scripts/imu_yaw_publisher.py',
+        name='imu_yaw_publisher',
+        output='screen',
+    )
+    launch_actions.append(imu_yaw_publisher)
+
     launch_actions.append(teleop)
 
     # launch_actions.append(shutdown_event)
