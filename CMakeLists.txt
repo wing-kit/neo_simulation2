@@ -11,7 +11,10 @@ install(DIRECTORY launch
   rviz
   components
   models
-  scripts
   DESTINATION share/${PROJECT_NAME})
+
+install(PROGRAMS
+  scripts/imu_yaw_publisher.py
+  DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

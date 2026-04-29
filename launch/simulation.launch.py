@@ -171,7 +171,7 @@ def launch_setup(context: LaunchContext, my_neo_robot_arg, my_neo_env_arg, robot
     # Publish direct yaw angle from IMU quaternion
     imu_yaw_publisher = Node(
         package='neo_simulation2',
-        executable='scripts/imu_yaw_publisher.py',
+        executable='imu_yaw_publisher.py',
         name='imu_yaw_publisher',
         output='screen',
     )
