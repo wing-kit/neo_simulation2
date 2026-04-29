@@ -66,6 +66,7 @@
     <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/lidar.xacro" />
     <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/depth_camera.xacro" />
     <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/ultrasonic_sensor.xacro" />
+    <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/imu.xacro" />
     
 
 
