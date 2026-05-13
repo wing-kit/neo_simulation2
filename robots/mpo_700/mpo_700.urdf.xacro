@@ -63,8 +63,10 @@
       <!-- <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/xacros/sick_S300.xacro" /> -->
     
     <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/inertial_macros.xacro"/>
-    <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/lidar.xacro" />
-    <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/depth_camera.xacro" />
+    <!-- 3D LIDAR DISABLED -->
+    <!-- <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/lidar.xacro" /> -->
+    <!-- RGBD CAMERA DISABLED -->
+    <!-- <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/depth_camera.xacro" /> -->
     <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/ultrasonic_sensor.xacro" />
     <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/imu.xacro" />
     

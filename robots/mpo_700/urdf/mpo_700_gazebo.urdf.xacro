@@ -27,12 +27,27 @@
         update_rate="${lidar_1_update_rate}"
         min_range="0.5"
         max_range="10.0"
-        horizontal_samples="360"
+        horizontal_samples="1125"
         min_angle="-3.14"
         max_angle="3.14"
         noise_mean="0.0"
         noise_stddev="0.02"
         topic_name="scan"
+        visualize="false"
+    />
+    <!-- 360-degree 2D Lidar at 1.0m height -->
+    <xacro:gazebo_lidar_sensor
+        sensor_name="lidar_all_sensor"
+        link_name="lidar_all_link"
+        update_rate="10"
+        min_range="0.3"
+        max_range="30.0"
+        horizontal_samples="1125"
+        min_angle="-3.14159"
+        max_angle="3.14159"
+        noise_mean="0.0"
+        noise_stddev="0.0033"
+        topic_name="scan_all"
         visualize="false"
     />
     

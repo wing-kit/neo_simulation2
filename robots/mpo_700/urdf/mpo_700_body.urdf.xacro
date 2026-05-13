@@ -60,6 +60,34 @@
         </collision>
     </link>
 
+    <!-- 360-degree 2D Lidar at 1.0m height -->
+    <joint name="lidar_all_joint" type="fixed">
+        <axis xyz="0 1 0"/>
+        <origin rpy="0 0 0" xyz="0 0 1.0"/>
+        <parent link="base_link"/>
+        <child link="lidar_all_link"/>
+    </joint>
+
+    <link name="lidar_all_link" type="laser">
+        <inertial>
+            <mass value="0.5"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.04" length="0.06"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.04" length="0.06"/>
+            </geometry>
+        </collision>
+    </link>
     <!-- Import wheel macros -->
     <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/macro/mpo_700_wheel_macro.xacro"/>
     <xacro:include filename="$(find neo_simulation2)/robots/mpo_700/urdf/macro/mpo_700_caster_wheel_macro.xacro"/>
